@@ -25,7 +25,8 @@ public class charactercontroller : MonoBehaviour
     {
         Run();
         Filp();
-       
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0f);
+
         if (Input.GetKeyDown(KeyCode.K))
         {
             // ´¥·¢¶¯»­µÄTrigger
