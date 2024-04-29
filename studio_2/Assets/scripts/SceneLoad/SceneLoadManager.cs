@@ -6,12 +6,9 @@ using UnityEngine.SceneManagement;
 public class SceneLoadManager : MonoBehaviour
 {
     public static SceneLoadManager Instance;
-    private door1 door1;
+    //private door1 door1;
 
-    private void Start()
-    {
-        door1 = FindObjectOfType<door1>();
-    }
+    
 
     // 这个函数会在场景加载时调用，初始化静态实例
     private void Awake()
@@ -32,10 +29,6 @@ public class SceneLoadManager : MonoBehaviour
     }
     private void Update()
     {
-        if (door1.PlayerEnteredTrigger() && Input.GetKeyDown(KeyCode.E))
-        {
-            LoadNextScene();
-        }
     }
 
     // 加载下一个场景的函数
@@ -52,6 +45,18 @@ public class SceneLoadManager : MonoBehaviour
         else
         {
             Debug.LogWarning("当前场景已经是最后一个场景");
+        }
+    }
+    public void LoadNextNextScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentSceneIndex < SceneManager.sceneCountInBuildSettings - 2)
+        {
+            SceneManager.LoadScene(currentSceneIndex + 2);
+        }
+        else
+        {
+            Debug.LogWarning("当前场景已经是倒数第二个场景");
         }
     }
 }

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class FruitUI : MonoBehaviour
 {
     public Text fruitCountText; // 引用UI文本对象
-    private int fruitCount = -1;
-    private int targetFruitCount = 50; // 目标水果数量
+    public int fruitCount = -1;
+    public int targetFruitCount = 50; // 目标水果数量
 
     private void Start()
     {

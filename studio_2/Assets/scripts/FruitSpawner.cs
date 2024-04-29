@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FruitSpawner : MonoBehaviour
@@ -18,13 +19,21 @@ public class FruitSpawner : MonoBehaviour
         while (true)
         {
             // 随机选择生成水果的数量
-            int numberOfFruits = Random.Range(1, spawnPoints.Length + 1);
+            int totalFruitsToSpawn = Random.Range(1, spawnPoints.Length + 1);
 
-            // 在随机生成点生成水果
-            for (int i = 0; i < numberOfFruits; i++)
+            // 随机选择生成点，并记录已经选中的点
+            List<int> selectedIndices = new List<int>();
+            for (int i = 0; i < totalFruitsToSpawn; i++)
             {
-                // 随机选择一个生成点
-                int randomIndex = Random.Range(0, spawnPoints.Length);
+                int randomIndex;
+                // 确保选择的点不重复
+                do
+                {
+                    randomIndex = Random.Range(0, spawnPoints.Length);
+                } while (selectedIndices.Contains(randomIndex));
+
+                selectedIndices.Add(randomIndex);
+
                 Transform randomSpawnPoint = spawnPoints[randomIndex];
 
                 // 生成水果并保持其初始属性
@@ -41,4 +50,5 @@ public class FruitSpawner : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(spawnInterval, spawnInterval * 2));
         }
     }
+
 }

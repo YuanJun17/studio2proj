@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - circle
+  - square
+  - ground
   layers:
   - Default
   - TransparentFX
@@ -13,7 +16,7 @@ TagManager:
   - UI
   - player
   - eneny
-  - 
+  - ground
   - 
   - 
   - 
@@ -44,10 +47,16 @@ TagManager:
   - name: bg
     uniqueID: 1269995191
     locked: 0
+  - name: bg_2
+    uniqueID: 3865190425
+    locked: 0
+  - name: tree
+    uniqueID: 115868599
+    locked: 0
   - name: map
     uniqueID: 3721708129
     locked: 0
-  - name: New Layer 3
+  - name: player
     uniqueID: 2805016411
     locked: 0
   - name: fruit
