@@ -21,7 +21,7 @@ public class BoxJump : MonoBehaviour
         // 检测空格键是否被按下
         if (Input.GetMouseButtonDown(0) && isGrounded)
         {
-            // 如果按下空格键，执行跳跃
+            
             Jump();
         }
     }
@@ -33,7 +33,6 @@ public class BoxJump : MonoBehaviour
     void Jump()
     {
        
-        // 添加向上的力以执行跳跃
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpForce);
 
     }
