@@ -17,11 +17,11 @@ public class SceneLoader : MonoBehaviour
         // 检测鼠标是否与物体发生碰撞，并且按下了 F 键
         if (Input.GetKeyDown(KeyCode.F) && IsMouseOverObject())
         {
-            SceneLoadManager.Instance.LoadNextNextScene();
+            SceneLoadManager.Instance.LoadNextScene();
         }
         if (Input.GetMouseButtonDown(0) && IsMouseOverObject())
         {
-            SceneLoadManager.Instance.LoadNextScene();
+            SceneLoadManager.Instance.LoadNextNextScene();
         }
     }
     void OnMouseEnter()

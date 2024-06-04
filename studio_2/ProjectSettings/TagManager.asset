@@ -8,6 +8,7 @@ TagManager:
   - square
   - ground
   - Aim
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -65,4 +66,7 @@ TagManager:
     locked: 0
   - name: front
     uniqueID: 3176623873
+    locked: 0
+  - name: pre
+    uniqueID: 197090527
     locked: 0

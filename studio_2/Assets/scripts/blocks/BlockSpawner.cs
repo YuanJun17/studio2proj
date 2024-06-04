@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-    public GameObject blockPrefab;
+    public GameObject[] blockPrefabs;
     private Vector3 lastBlockPosition; // 上一个 block 的位置
+    public Vector3 initialPosition;
 
     void Start()
     {
         // 订阅 QTE 物体销毁事件
         qteDestory.OnQTEDestroyed += SpawnBlock;
-        lastBlockPosition = blockPrefab.transform.position;
+        lastBlockPosition = initialPosition;
     }
 
     void SpawnBlock()
     {
+        int randomIndex = Random.Range(0, blockPrefabs.Length); // 随机选择一个预制体
+        GameObject selectedPrefab = blockPrefabs[randomIndex];
+
         Vector3 newPosition = lastBlockPosition + Vector3.up * 2f;
 
         // 生成 block
-        Instantiate(blockPrefab, newPosition, Quaternion.identity);
-
+        Instantiate(selectedPrefab, newPosition, Quaternion.identity);
 
         // 更新上一个 block 的位置为当前生成的 block 的位置
         lastBlockPosition = newPosition;

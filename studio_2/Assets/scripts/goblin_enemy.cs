@@ -17,7 +17,7 @@ public class goblin_enemy : MonoBehaviour
         myrigidbody = GetComponent<Rigidbody2D>();
         myanim = GetComponent<Animator>();
 
-        Target = new Vector3(Random.Range(-140, 140), transform.position.y, transform.position.z);
+        Target = new Vector3(Random.Range(-100, 100), transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class goblin_enemy : MonoBehaviour
     //随机目标位置
     void setTarget()
     {
-        Target.Set(Random.Range(-140,140), transform.position.y, transform.position.z);
+        Target.Set(Random.Range(-100,100), transform.position.y, transform.position.z);
         return ;
     }
 

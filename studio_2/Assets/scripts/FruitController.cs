@@ -26,6 +26,12 @@ public class FruitController : MonoBehaviour
             Destroy(gameObject);
             OnFruitEaten?.Invoke();
         }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // 销毁水果物体
+            Destroy(gameObject);
+            
+        }
     }
 
     private void DestroyFruit()
