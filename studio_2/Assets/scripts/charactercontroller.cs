@@ -78,4 +78,9 @@ public class charactercontroller : MonoBehaviour
             Debug.LogWarning("未设置Animator组件或落点骨骼！");
         }
     }
+
+    public void Die()
+    {
+        transform.position = new Vector3(0, 0, 0);
+    }
 }
