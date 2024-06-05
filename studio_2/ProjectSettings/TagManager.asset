@@ -7,6 +7,7 @@ TagManager:
   - circle
   - square
   - ground
+  - Aim
   - Enemy
   layers:
   - Default
