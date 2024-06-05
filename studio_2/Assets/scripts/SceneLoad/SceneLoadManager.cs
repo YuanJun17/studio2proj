@@ -20,16 +20,14 @@ public class SceneLoadManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(this);
             return;
         }
 
         // 保留该对象，即使加载了新场景
         DontDestroyOnLoad(gameObject);
     }
-    private void Update()
-    {
-    }
+   
 
     // 加载下一个场景的函数
     public void LoadNextScene()

@@ -8,14 +8,14 @@ public class FruitController : MonoBehaviour
     public static event FruitEatenAction OnFruitEaten;
     void Start()
     {
-        StartCoroutine(DestroyAfterDelay(8f)); // 开始一个协程，在x秒后销毁水果
+        StartCoroutine(DestroyAfterDelay(6f)); // 开始一个协程，在x秒后销毁水果
         // 获取物体的 Rigidbody2D 组件
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
+     /*   if (rb != null)
         {
             // 修改摩擦力
             rb.sharedMaterial.friction = 0.5f; // 设置摩擦力为 0.5
-        }
+        }*/
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

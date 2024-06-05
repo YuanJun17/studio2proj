@@ -7,6 +7,8 @@ public class SceneLoader : MonoBehaviour
 {
     public CanvasGroup text1CanvasGroup;
     public CanvasGroup text2CanvasGroup;
+    private bool iscircle = false;
+    private bool issquare = false;
     void Start()
     {
         text1CanvasGroup.alpha = 0f;
@@ -15,11 +17,11 @@ public class SceneLoader : MonoBehaviour
     void Update()
     {
         // 检测鼠标是否与物体发生碰撞，并且按下了 F 键
-        if (Input.GetKeyDown(KeyCode.F) && IsMouseOverObject())
+        if (Input.GetKeyDown(KeyCode.F) && IsMouseOverObject()&& iscircle)
         {
             SceneLoadManager.Instance.LoadNextScene();
         }
-        if (Input.GetMouseButtonDown(0) && IsMouseOverObject())
+        if (Input.GetMouseButtonDown(0) && IsMouseOverObject()&&issquare)
         {
             SceneLoadManager.Instance.LoadNextNextScene();
         }
@@ -31,7 +33,8 @@ public class SceneLoader : MonoBehaviour
             
             text1CanvasGroup.alpha = 1f; // 显示文字1
             text2CanvasGroup.alpha = 0f; // 隐藏文字2
-            
+            iscircle = true;
+            issquare = false;
         }
 
 
@@ -40,6 +43,8 @@ public class SceneLoader : MonoBehaviour
             
             text1CanvasGroup.alpha = 0f; // 隐藏文字1
             text2CanvasGroup.alpha = 1f; // 显示 
+            issquare=true;
+            iscircle=false;
         }
     }
     void OnMouseExit()

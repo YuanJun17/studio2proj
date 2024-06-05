@@ -28,12 +28,13 @@ public class buttonController : MonoBehaviour
         if (!isMoving && currentIndex < moveLogicSequence.Length && !isLogicCompleted)
         {
             LogicValue currentValue = moveLogicSequence[currentIndex];
-            if (currentValue == LogicValue.True || (currentValue == LogicValue.False && !isYesButton))
+
+            // 判断当前值和按钮按下的值是否匹配
+            if ((isYesButton && currentValue == LogicValue.True) || (!isYesButton && currentValue == LogicValue.False))
             {
                 Vector3 moveDirection = Vector3.up; // 默认移动方向为向上
                 MoveObject(objectsToMove[currentIndex], moveDirection);
             }
-            
         }
     }
     void MoveObject(Transform obj, Vector3 moveDirection)

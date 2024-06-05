@@ -11,19 +11,34 @@ public class FruitUI : MonoBehaviour
 
     private void Start()
     {
-        
-        FruitController.OnFruitEaten += UpdateFruitCountText; // 订阅水果被吃掉的事件
+
+        FruitController.OnFruitEaten += OnFruitEaten;
+        FruitController_2.OnGoldenFruitEaten += OnGoldenFruitEaten;
         UpdateFruitCountText(); // 初始化 UI 文本显示
+       
+    }
+
+    private void OnFruitEaten()
+    {
+        fruitCount++;
+        UpdateFruitCountText();
+    }
+
+    private void OnGoldenFruitEaten()
+    {
+        fruitCount += 5;
+        UpdateFruitCountText();
     }
 
     private void UpdateFruitCountText()
     {
-        fruitCount++;
         fruitCountText.text = fruitCount + "/" + targetFruitCount; // 更新UI文本显示
     }
 
     private void OnDestroy()
     {
-        FruitController.OnFruitEaten -= UpdateFruitCountText; // 取消订阅水果被吃掉的事件
+        // 取消订阅水果被吃掉的事件
+        FruitController.OnFruitEaten -= OnFruitEaten;
+        FruitController_2.OnGoldenFruitEaten -= OnGoldenFruitEaten;
     }
 }

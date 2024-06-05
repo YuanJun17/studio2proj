@@ -11,7 +11,7 @@ public class questionChange : MonoBehaviour
     public float fadeDuration = 1.0f; // 淡入淡出持续时间
   
     private bool isFading = false; // 标记是否正在淡入淡出
-
+    private bool allSpritesChanged = false; // 标记是否已切换完所有Sprite
 
     void Start()
     {
@@ -22,6 +22,7 @@ public class questionChange : MonoBehaviour
 
     void HandleButtonPressed(bool isYesButton)
     {
+        if (allSpritesChanged || isFading) return;
         if (!isFading && spritesToChange.Length > 0)
         {
             StartCoroutine(FadeOut(() =>
@@ -31,9 +32,17 @@ public class questionChange : MonoBehaviour
                 {
                     renderer.sprite = spritesToChange[currentSpriteIndex];
                 }
-                currentSpriteIndex = (currentSpriteIndex + 1) % spritesToChange.Length;
+                currentSpriteIndex++;
 
-                StartCoroutine(FadeIn());
+                // 检查是否已切换完所有Sprite
+                if (currentSpriteIndex >= spritesToChange.Length)
+                {
+                    allSpritesChanged = true;
+                }
+                else
+                {
+                    StartCoroutine(FadeIn());
+                }
             }));
         }
     }

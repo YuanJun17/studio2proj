@@ -11,9 +11,17 @@ public class BlockMove : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(MoveObjects());
+        StartCoroutine(DelayedStart());
     }
 
+    IEnumerator DelayedStart()
+    {
+        // 等待 10 秒
+        yield return new WaitForSeconds(5f);
+
+        // 开始移动物体
+        StartCoroutine(MoveObjects());
+    }
     IEnumerator MoveObjects()
     {
         // 遍历所有需要移动的物体
@@ -33,7 +41,7 @@ public class BlockMove : MonoBehaviour
         float elapsedTime = 0f;
         Vector3 startingPos = obj.position;
 
-        while (elapsedTime < 1f) // 这里假设移动时间为 1 秒，你可以根据需要调整
+        while (elapsedTime < 2f) // 这里假设移动时间为 1 秒，你可以根据需要调整
         {
             obj.position = Vector3.Lerp(startingPos, targetPosition, elapsedTime);
             elapsedTime += Time.deltaTime;

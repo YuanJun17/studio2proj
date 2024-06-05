@@ -33,11 +33,11 @@ EditorBuildSettings:
     path: Assets/Scenes/choice_2.unity
     guid: 6f1fd0d5ac762c44d9f6ba3bcab2e044
   - enabled: 1
-    path: Assets/Scenes/level_2.unity
-    guid: b2316a8726d02cc40a46b71fc7e479a6
-  - enabled: 1
     path: "Assets/Scenes/\u5BF9\u8BDD2.unity"
     guid: c9db7e13f8d03d64083780f99add0243
+  - enabled: 1
+    path: Assets/Scenes/level_2.unity
+    guid: b2316a8726d02cc40a46b71fc7e479a6
   - enabled: 1
     path: Assets/Scenes/level_2_huamn.unity
     guid: 62859343a7a16b84a9f55ccf56999721

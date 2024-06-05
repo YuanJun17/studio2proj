@@ -36,7 +36,7 @@ public class backgroundfollow : MonoBehaviour
         if (stopInput)
         {
             stopInputTimer += Time.deltaTime;
-            if (stopInputTimer >= stopInputDelay)
+            if (stopInputTimer >= stopInputDelay || fruitUI.fruitCount == fruitUI.targetFruitCount)
             {
                 charactercontroller.myanim.SetTrigger("stop");
                 charactercontroller.enabled = false;
@@ -47,10 +47,7 @@ public class backgroundfollow : MonoBehaviour
 
             }
         }
-        if (fruitUI.fruitCount == fruitUI.targetFruitCount)
-        {
-            PlayTimeline();
-        }
+        
 
     }
     void LateUpdate()
