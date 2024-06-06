@@ -8,7 +8,7 @@ public class door_hu : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             SceneLoadManager.Instance.LoadNextScene();
         }
     }

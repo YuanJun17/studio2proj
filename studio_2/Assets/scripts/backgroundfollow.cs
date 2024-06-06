@@ -13,7 +13,7 @@ public class backgroundfollow : MonoBehaviour
 
     private float timer = 0.0f;
     private bool canRotate = false;
-    private float totalRotation = 0f; // 用于跟踪旋转的总角度
+    public float totalRotation = 0f; // 用于跟踪旋转的总角度
     private bool stopInput = false;
     private float stopInputTimer = 0.0f;
 

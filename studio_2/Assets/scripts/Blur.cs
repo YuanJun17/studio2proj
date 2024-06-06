@@ -6,7 +6,7 @@ public class Blur : MonoBehaviour
 {
     public Shader blurShader; // 模糊效果的 Shader
     private Material blurMaterial; // 模糊效果的材质
-    private float blurStrength = 5.0f; // 初始模糊强度
+    private float blurStrength; // 初始模糊强度
     private float blurTime = 0.0f; // 初始模糊时间参数
     private bool mouseClicked = false; // 鼠标点击状态
     public float timespeed = 0.05f;
@@ -14,6 +14,8 @@ public class Blur : MonoBehaviour
     {
         // 创建模糊效果的材质
         blurMaterial = new Material(blurShader);
+        StartCoroutine(StartDelayed());
+
     }
 
     void Update()
@@ -43,5 +45,14 @@ public class Blur : MonoBehaviour
         // 减小模糊强度
         blurTime -= 1.0f;
         blurTime = Mathf.Max(blurTime, 0.0f); // 确保模糊强度不小于0
+    }
+    private IEnumerator StartDelayed()
+    {
+        // 等待10秒
+        yield return new WaitForSeconds(10f);
+
+        // 这里添加你希望在10秒后执行的代码
+        // 例如，我们可以在这里增加模糊效果
+        blurStrength = 5.0f; // 假设我们希望在10秒后开始应用模糊效果
     }
 }

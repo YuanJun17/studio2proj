@@ -10,7 +10,7 @@ public class Level2End : MonoBehaviour
     public MonoBehaviour script1; // 引用脚本1
     public MonoBehaviour script2; // 引用脚本2
     public int testTargetNum;
-
+    private backgroundfollow backgroundfollow;
     private void Start()
     {
         // 确保Timeline一开始是停止的
@@ -25,7 +25,7 @@ public class Level2End : MonoBehaviour
     }
     private void Update()
     {
-        if (fruitUI.fruitCount >= testTargetNum)
+        if (fruitUI.fruitCount >= testTargetNum || backgroundfollow.totalRotation >= 180f)
         {
             StopScriptsAndPlayTimeline();
         }
@@ -39,6 +39,7 @@ public class Level2End : MonoBehaviour
 
         if (timelineDirector != null)
         {
+            
             timelineDirector.Play(); // 播放Timeline
         }
         else

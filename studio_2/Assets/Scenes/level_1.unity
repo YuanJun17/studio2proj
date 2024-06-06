@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitCountText: {fileID: 2027595546}
-  fruitCount: -1
+  fruitCount: 0
   targetFruitCount: 50
 --- !u!224 &51619750
 RectTransform:

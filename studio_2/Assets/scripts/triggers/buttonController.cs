@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Playables;
 
 public class buttonController : MonoBehaviour
 {
@@ -16,10 +17,11 @@ public class buttonController : MonoBehaviour
     private LogicValue[] moveLogicSequence = { LogicValue.True, LogicValue.True, LogicValue.False, LogicValue.False, LogicValue.True}; // 例如：true, true, false, true
 
     private bool isLogicCompleted = false; // 标记逻辑是否完成一轮
- 
-    void Start()
+    public PlayableDirector timelineDirector;
+  
+    private void Start()
     {
-        
+        timelineDirector.Pause();
         yesbutton.OnButtonPressed += HandleButtonPressed;
         nobutton.OnButtonPressed += HandleButtonPressed;
     }
@@ -68,6 +70,14 @@ public class buttonController : MonoBehaviour
         {
             currentIndex = 0;
             isLogicCompleted = true;
+            if (timelineDirector != null)
+            {
+                timelineDirector.Play();
+            }
+            else
+            {
+                Debug.LogError("Timeline Director is not assigned!");
+            }
         }
     }
 
